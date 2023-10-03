@@ -1,0 +1,34 @@
+{
+  "language": "typescript",
+  "env": {
+    "qa": {
+      "bucket": "kor-scripts-quality",
+      "name": "QA (Quality Assurance)",
+      "description": "Desenvolvimento, testes e homologações"
+    },
+    "prd": {
+      "bucket": "kor-scripts-prd",
+      "name": "Produção",
+      "description": "Ambiente de produção (CUIDADO)",
+      "warning": "ATENÇÃO!!! Você está fazendo deploy em PRODUÇÃO. Quer continuar?"
+    }
+  },
+  "path": "node/node-deploy/test",
+  "lambdaFunctions": [
+    {
+      "functionName": "node-deploy-teste"
+    },
+    {
+      "functionName": "node-deploy-teste-1"
+    },
+    {
+      "functionName": "node-deploy-teste-2"
+    },
+    {
+      "functionName": "node-deploy-teste-3"
+    },
+    {
+      "functionName": "node-deploy-teste-4"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@roc/deploy",
+  "description": "Script to deploy lambdas functions to AWS",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "bin": {
+    "rocdeploy": "./dist/main.js"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "node esbuild.config.js",
+    "start": "node dist/main.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-lambda": "^3.421.0",
+    "@aws-sdk/client-s3": "^3.421.0",
+    "@inquirer/checkbox": "^1.3.12",
+    "@inquirer/input": "^1.2.12",
+    "@inquirer/prompts": "^3.1.2",
+    "archiver": "^6.0.1",
+    "cli-progress": "^3.12.0",
+    "figlet": "^1.6.0",
+    "ini": "^4.1.1"
+  },
+  "devDependencies": {
+    "@aws-sdk/types": "^3.418.0",
+    "@inquirer/select": "^1.2.12",
+    "@types/archiver": "^5.3.3",
+    "@types/cli-progress": "^3.11.3",
+    "@types/figlet": "^1.5.6",
+    "@types/node": "^20.7.1",
+    "esbuild": "^0.19.4",
+    "esbuild-plugin-tsc": "^0.4.0",
+    "tsc": "^2.0.4",
+    "typescript": "^5.2.2"
+  }
+}
