@@ -1,8 +1,16 @@
 {
-  "name": "@roc/deploy",
+  "name": "roc-deploy",
   "description": "Script to deploy lambdas functions to AWS",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GabrielRoc/roc-deploy"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["deploy", "aws", "lambda", "s3"],
   "files": [
     "dist",
     "package.json"
