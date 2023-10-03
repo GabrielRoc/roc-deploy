@@ -7,13 +7,13 @@ O script de deploy interativo simplifica a atualização de suas funções do AW
 Para instalar o script, basta executar o comando abaixo no terminal:
 
 ```bash
-yarn add -D @roc/deploy
+yarn add -D roc-deploy
 ```
 
 ou
 
 ```bash
-npm install --save-dev @roc/deploy
+npm install --save-dev roc-deploy
 ```
 
 ## Como utilizar

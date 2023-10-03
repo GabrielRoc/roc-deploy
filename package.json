@@ -1,7 +1,7 @@
 {
   "name": "roc-deploy",
   "description": "Script to deploy lambdas functions to AWS",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/main.js",
   "repository": {
     "type": "git",
