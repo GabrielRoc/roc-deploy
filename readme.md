@@ -18,19 +18,11 @@ npm install --save-dev roc-deploy
 
 ## Como utilizar
 
-Tudo o que você precisa fazer é executar o comando abaixo no terminal:
-
-```bash
-rocdeploy
-```
-
-Recomendamos que você adicione o comando acima em seu arquivo `package.json` para facilitar o uso.
+Para utilizar o script, basta utilizar o script você deve configurar o arquivo `deploy-config.json` e adicionar o seguinte comando no seu `package.json`:
 
 ```json
-{
-  "scripts": {
-    "deploy": "rocdeploy"
-  }
+"scripts": {
+  "deploy": "roc-deploy"
 }
 ```
 
