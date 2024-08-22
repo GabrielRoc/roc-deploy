@@ -15,10 +15,10 @@ async function main() {
     const { profile, region, environment, lambdas, packageManager } =
       await form(language, env, lambdaFunctions);
 
-    const awsService = new AWSService({
-      ...profile,
+    const awsService = new AWSService(
+      profile,
       region,
-    });
+    );
 
     await deploy(
       packageManager,
