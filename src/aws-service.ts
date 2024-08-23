@@ -12,6 +12,7 @@ interface AWSServiceConfig {
     accessKeyId: string;
     secretAccessKey: string;
   };
+  profile?: string
 }
 export class AWSService {
   private readonly s3Client: S3Client;
@@ -27,6 +28,7 @@ export class AWSService {
     }
     if (this.ssoTriggerKeys.some(key => key in profile.config)) {
       this.handleSsoLogin(profile.profileName)
+      config.profile = profile.profileName
     } else {
       config.credentials = {
         accessKeyId: profile.credentials!.aws_access_key_id,
