@@ -7,11 +7,15 @@ async function profileQuestion(): Promise<Profile> {
   const profiles = getAWSProfiles();
   const profileChoices: any[] = Object.keys(profiles).map((profile: string) => {
     return {
-      name: profile,
+      name: profile === 'default' ? 'Padrão' : profile,
       value: profiles[profile]!,
     };
   });
-  profileChoices[0].name = "Padrão";
+  const defaultIndex = profileChoices.findIndex(obj => obj.name === 'Padrão');
+  if (defaultIndex !== -1) {
+    const [defaultItem] = profileChoices.splice(defaultIndex, 1);
+    profileChoices.unshift(defaultItem);
+  }
   profileChoices.splice(1, 0, new Separator());
   profileChoices.push(new Separator());
   profileChoices.push({
@@ -25,25 +29,27 @@ async function profileQuestion(): Promise<Profile> {
 
   if (!profileChoice) {
     profileChoice = {
-      aws_access_key_id: await input({
-        message: "Informe a access key:",
-      }),
-      aws_secret_access_key: await input({
-        message: "Informe a secret key:",
-      }),
+      credentials: {
+        aws_access_key_id: await input({
+          message: "Informe a access key:",
+        }),
+        aws_secret_access_key: await input({
+          message: "Informe a secret key:",
+        }),
+      },
+      config: {},
+      profileName: "temporary"
     };
   }
-
   return profileChoice;
 }
 
 async function regionQuestion(profile: Profile): Promise<string> {
-  let regionChoice: string | undefined = undefined;
-  if (profile.region) regionChoice = profile.region;
+  let regionChoice: string | undefined = profile.config.region;
   let useDefaultRegion = false;
   if (regionChoice) {
     useDefaultRegion = await confirm({
-      message: `Deseja utilizar a região do perfil [${profile.region}]?`,
+      message: `Deseja utilizar a região do perfil [${regionChoice}]?`,
     });
   }
   if (!useDefaultRegion) {
